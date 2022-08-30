@@ -73,10 +73,10 @@ setBtnText("Back to Color")
               <textarea className="form-control"  id="text" rows="8" value={text} onChange={handelOnChange} style={myStyle}></textarea>
             </div>
             <button className='btn btn-primary btn-space my-2 p-3' onClick={handelUpClick} >Convert to UpperCase</button>
-            <button className='btn btn-success btn-space my-2 p-3' onClick={handelLowClick} >Convert to LowerCase</button>
-            <button className='btn btn-warning btn-space my-2 p-3' onClick={changeColor}>{btnText}</button>
-            <button className='btn btn-space btn-dark my-2 p-3' onClick={removeSpaces}>Remove Extra Spaces</button>
-           <button className='btn btn-danger btn-space my-2 p-3' onClick={reset} >Clear All</button>
+            <button className='btn btn-primary btn-space my-2 p-3' onClick={handelLowClick} >Convert to LowerCase</button>
+            <button className='btn btn-primary btn-space my-2 p-3' onClick={changeColor}>{btnText}</button>
+            <button className='btn btn-primary btn-space my-2 p-3' onClick={removeSpaces}>Remove Extra Spaces</button>
+           <button className='btn btn-primary btn-space my-2 p-3' onClick={reset} >Clear All</button>
 
           </div>
 
@@ -86,8 +86,8 @@ setBtnText("Back to Color")
       <div className="container" style={{color:props.mode ==='dark'?'white':'#042743'}}>
 
         <h2>Your Text Summary here</h2>
-        <p>  {text.trim() === '' ? 0 : text.split(" ").length} words,  {text.length} Charachter</p>
-        <p> {0.08 * text.split(" ").length} Minutes Read</p>
+        <p>  {text.split(/\s+/).filter((element) => {return element.length !==0}).length} words,  {text.length} Charachter</p>
+        <p> {0.08 * text.split(" ").filter((element) => {return element.length !==0}).length} Minutes Read</p>
         <h2>Preview Text</h2>
 
         <p style={myStyle}>{text.length>0? text:"Enter Something in the above textarea!"}</p>

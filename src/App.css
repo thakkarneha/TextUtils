@@ -40,3 +40,6 @@
 .btn-space {
   margin-right: 5px;
 }
+.btn.btn-rounded {
+    border-radius: 100px;
+}
